@@ -1,7 +1,7 @@
 var req = require('request');
-
-var userChoice = process.argv[2];
-
+var command = process.argv[2]
+var userChoice = process.argv[3];
+if (command == "movie-this") {
 req("http://www.omdbapi.com/?t=" + userChoice + "&y=&plot=short&r=json", function (error, response, body) {
    
     console.log(JSON.parse(body).Title);
@@ -14,3 +14,4 @@ req("http://www.omdbapi.com/?t=" + userChoice + "&y=&plot=short&r=json", functio
  	console.log(JSON.parse(body).rottentomatoesRating);
  	console.log(JSON.parse(body).rottentomatoesUrl);
 });
+}
