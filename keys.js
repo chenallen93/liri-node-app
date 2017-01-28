@@ -7,3 +7,9 @@ exports.twitterKeys = {
   access_token_secret: 'kB43w5WT7z83i9zUFbipc42j4ytIdJqcKNSCk6IcVBo2R',
 }
 
+var params = {screen_name: 'nodejs'};
+client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  if (!error) {
+    console.log(tweets);
+  }
+});
