@@ -1,4 +1,5 @@
 var req = require('request');
+var fs = require('fs');
 var command = process.argv[2]
 var userChoice = process.argv[3];
 if (command == "movie-this") {
@@ -49,4 +50,29 @@ if (command == 'spotify-this-song'){
         console.log(song.album.name)
 
 });
+}
+	if (command == 'do-what-it-says') {
+
+ 	var fse = fs.readFile('random.txt', 'utf8', function(err, data) {
+     
+ });
+
+ 	spotify.search({type: 'track', query: fse }, function(err, data) {
+
+		if ( err ) {
+	    console.log('Error occurred: ' + err);
+	    return;
+	    }
+
+    var song = data.tracks.items[0];
+   		console.log(song.artists[0].name)
+        console.log(song.name)
+        console.log(song.preview_url)
+        console.log(song.album.name)
+    });
+}
+if (command == 'my-tweets'){
+
+	var keys = require('keys.js')
+	var Twitter = require('twitter')
 }
